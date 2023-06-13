@@ -73,20 +73,54 @@ const Calendar = () => {
                   primary={event.title}
                   secondary={
                     <Typography variant="caption">
-                      {
-                        (formatDate(event.start),
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })
-                      }
+                      {formatDate(event.start, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
                     </Typography>
                   }
                 />
               </ListItem>
             ))}
           </List>
+        </Box>
+        {/* Calendar */}
+        <Box flex="1 1 100%" ml="15px">
+          <FullCalendar
+            height="75vh"
+            plugins={[
+              dayGridPlugin,
+              timeGridPlugin,
+              listPlugin,
+              interactionPlugin,
+            ]}
+            headerToolbar={{
+              left: "prev,next today",
+              center: "title",
+              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+            }}
+            initialView="dayGridMonth"
+            editable={true}
+            selectable={true}
+            selectMirror={true}
+            dayMaxEvents={true}
+            select={handleDate}
+            eventClick={handleEvent}
+            eventsSet={(events) => setCurrentEvents(events)}
+            initialEvents={[
+              {
+                id: "1234",
+                title: "All Day Event",
+                start: "2022-06-12",
+              },
+              {
+                id: "5678",
+                title: "Timed Event",
+                start: "2023-06-11",
+              },
+            ]}
+          />
         </Box>
       </Box>
     </Box>

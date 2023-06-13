@@ -9,6 +9,10 @@ import Invoices from "./pages/invoices/Invoices";
 import Team from "./pages/team/Team";
 import ProfileForm from "./pages/profile-form/ProfileForm";
 import Calendar from "./pages/calendar/Calendar";
+import FAQ from "./pages/faq/FAQ";
+import Bar from "./pages/bar/Bar";
+import Pie from "./pages/pie/Pie";
+import Line from "./pages/line/Line";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -27,10 +31,10 @@ function App() {
               <Route path="/invoices" element={<Invoices />} />
               <Route path="/profile-form" element={<ProfileForm />} />
               <Route path="/calendar" element={<Calendar />} />
-              {/* <Route path="/bar" element={<Bar />} /> */}
-              {/* <Route path="/pie" element={<Pie />} /> */}
-              {/* <Route path="/line" element={<Line />} /> */}
-              {/* <Route path="/faq" element={<FAQ />} /> */}
+              <Route path="/help" element={<FAQ />} />
+              <Route path="/bar-chart" element={<Bar />} />
+              <Route path="/pie-chart" element={<Pie />} />
+              <Route path="/line-chart" element={<Line />} />
               {/* <Route path="/geography" element={<Geography />} /> */}
             </Routes>
           </main>
